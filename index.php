@@ -20,7 +20,7 @@
     ...
   </div>
 
-  <div class="ui left vertical inverted labeled icon fixed menu">
+  <div class="ui bottom horizontal inverted labeled icon fixed menu">
     <a class="item" href="#home">
       <i class="home icon"></i>
       Home
