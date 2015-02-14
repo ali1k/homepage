@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="personall home page of Dr. Ali Khalili">
+    <meta name="description" content="personal home page of Dr. Ali Khalili">
     <meta name="author" content="Ali Khalili">
 
     <title>Ali Khalili -- home page</title>
