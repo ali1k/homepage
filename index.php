@@ -20,7 +20,7 @@
     ...
   </div>
 
-  <div class="ui bottom horizontal inverted labeled icon fixed menu">
+  <div class="ui left vertical inverted labeled icon fixed menu">
     <a class="item" href="#home">
       <i class="home icon"></i>
       Home
@@ -54,8 +54,8 @@
 
         <div class="ui card">
           <div class="ui slide masked reveal image">
-            <img src="imgs/ali_pixels.jpg" class="visible content">
-            <img src="imgs/ali_smile.jpg" class="hidden content">
+            <img src="imgs/ali_smile.jpg" class="visible content">
+            <img src="imgs/ali.jpg" class="hidden content">
           </div>
           <div class="content">
             <a class="header">Ali Khalili (Dr.-Ing.)</a>
@@ -121,16 +121,16 @@
               //echo '<p>'.$description.'</p>';
             }
           ?>
-          <div class="item"><div class="content"><a class="mini ui button" href="http://ali1k.wordpress.com">Read More...</a></div></div>
+          <div class="item"><div class="content"><a class="fluid mini ui button" href="http://ali1k.wordpress.com">Read More...</a></div></div>
           </div>
         </div>
-        <div class="ui blue secondary segment" id="qod-quote">
+        <div class="ui blue segment secondary" id="qod-quote">
 
           <i class="quote left icon"></i>... loading ...<i class="quote right icon"></i>
 
 <script src="http://quotesondesign.com/api/3.0/api-3.0.js"
 type="text/javascript" charset="utf-8"></script>
-        </div>
+</div>
       </div>
 
     </div>
@@ -140,8 +140,17 @@ type="text/javascript" charset="utf-8"></script>
         <h3>About me</h3>
         <div class="ui tall stacked bottom vertical attached segment">
 
-          <p>
+          <p style="text-align: justify">
             My name is Ali Khalili (علی خلیلی). I am a <a href="http://en.wikipedia.org/wiki/Semantic_Web"><i>Semantic Web</i></a> and <a href="http://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction"><i>HCI</i></a> researcher and enthusiast.
+            My main research interests lie in user interfaces and applications of the Semantic Web technologies.
+            <a href="http://www.qucosa.de/recherche/frontdoor/?tx_slubopus4frontend%5bid%5d=urn:nbn:de:bsz:15-qucosa-159956">My PhD thesis</a> focused on <i>a semantics-based user interface model for content annotation, authoring and exploration</i>. I devised the <a href="http://www.semantic-web-journal.net/system/files/swj656.pdf">WYSIWYM</a> (What You See Is What You Mean) UI model to deal with semantically-enriched content.
+            <br/>
+            I have worked as a Web designer and developer for several years and have expertise in different Web technologies like PHP, JavaScript, NodeJS, etc. Application such as <a href="http://rdface.aksw.org">RDFaCE</a>, <a href="http://slidewiki.org">SlideWiki</a> and <a href="http://context.aksw.org">conTEXT</a> are some examples of my development work.
+            <br/>
+            I am originally form Iran and have been abroad (Germany, Netherlands) since 2009 to continue my education.
+            My wife (Bita) is a pharmacist and pharmaceutical technology researcher.
+            Besides my academic work, I enjoy reading novel and poetry books especially from Persian poets (e.g. <a href="http://en.wikipedia.org/wiki/Omar_Khayyam">Omar Khayyam</a>, <a href="http://en.wikipedia.org/wiki/Saadi_(poet)">Saadi</a>, <a href="http://en.wikipedia.org/wiki/Hafez_Shirazi">Hafez</a>, <a href="http://en.wikipedia.org/wiki/Rumi">Rumi</a>).
+            I also enjoy watching and playing soccer.
           </p>
         </div>
 
@@ -219,12 +228,12 @@ type="text/javascript" charset="utf-8"></script>
         </div>
         <div class="item"><i class="right triangle icon"></i>
           <div class="content">
-            <div class="description"><a class="ui circular label">1st Prize</a> of the AI Mashup Challenge 2014 (for the conTEXT Mashup platform).</div>
+            <div class="description"><a class="ui circular label">1st Prize</a> of the AI Mashup Challenge 2014 (for the <a href="http://context.aksw.org">conTEXT Mashup platform</a>).</div>
           </div>
         </div>
         <div class="item"><i class="right triangle icon"></i>
           <div class="content">
-            <div class="description"><a class="ui circular label">Best-application Prize</a> at WoLE2013 challenge (Doing Good by Linking Entities), WWW2013 workshops (for the Pharmer project).</div>
+            <div class="description"><a class="ui circular label">Best-application Prize</a> at WoLE2013 challenge (Doing Good by Linking Entities), WWW2013 workshops (for the <a href="http://bitili.com/pharmer">Pharmer</a> project).</div>
           </div>
         </div>
         <div class="item"><i class="right triangle icon"></i>
@@ -234,12 +243,12 @@ type="text/javascript" charset="utf-8"></script>
         </div>
         <div class="item"><i class="right triangle icon"></i>
           <div class="content">
-            <div class="description"><a class="ui circular label">Nominated</a> for best-paper award in the 5th International Conference on Computer Supported Education (CSEDU 2013) for the paper ``CrowdLearn: Crowd-sourcing the Creation of Highly-structured E-Learning Content".</div>
+            <div class="description"><a class="ui circular label">Nominated</a> for best-paper award in the 5th International Conference on Computer Supported Education (CSEDU 2013) for the paper "CrowdLearn: Crowd-sourcing the Creation of Highly-structured E-Learning Content".</div>
           </div>
         </div>
         <div class="item"><i class="right triangle icon"></i>
           <div class="content">
-            <div class="description"><a class="ui circular label">Nominated</a> for best-paper award in the 18th International Conference on Knowledge Engineering and Knowledge Management (EKAW 2012) for the paper ``SlideWiki: Elicitation and Sharing of Corporate Knowledge using Presentations".</div>
+            <div class="description"><a class="ui circular label">Nominated</a> for best-paper award in the 18th International Conference on Knowledge Engineering and Knowledge Management (EKAW 2012) for the paper "SlideWiki: Elicitation and Sharing of Corporate Knowledge using Presentations".</div>
           </div>
         </div>
         <div class="item"><i class="right triangle icon"></i>
@@ -249,7 +258,7 @@ type="text/javascript" charset="utf-8"></script>
         </div>
         <div class="item"><i class="right triangle icon"></i>
           <div class="content">
-            <div class="description"><a class="ui circular label">DAAD (The German Academic Exchange Service) Scholarship</a> for studying PhD in Germany, 2012.</div>
+            <div class="description"><a class="ui circular label" href="http://daad.de">DAAD (The German Academic Exchange Service) Scholarship</a> for studying PhD in Germany, 2012.</div>
           </div>
         </div>
 
@@ -261,11 +270,10 @@ type="text/javascript" charset="utf-8"></script>
 
   <div class="column" id="publications">
     <h3>List of publications</h3>
-    <div class="ui tall bottom vertical attached segment">
-
-      <p>
-
-      </p>
+    <div class="ui tall bottom vertical attached center aligned segment">
+      <a href="https://scholar.google.com/citations?user=dSMSH2wAAAAJ&hl=en" class="ui circular blue button"><img class="ui avatar image" src="imgs/gscholar.png">Google Scholar</a>
+      <a href="http://dblp1.uni-trier.de/pers/hd/k/Khalili:Ali" class="ui circular button"><img class="ui avatar image" src="imgs/dblp.jpeg"> DBLP</a>
+      <a href="http://www.bibsonomy.org/user/alikhalili" class="ui circular green button"><img class="ui avatar image" src="imgs/bibsonomy.png"> Bibsonomy</a>
     </div>
 
   </div>
@@ -273,9 +281,49 @@ type="text/javascript" charset="utf-8"></script>
   <div class="column" id="development">
     <h3>Software projects developed by me</h3>
     <div class="ui tall bottom vertical attached segment">
+      <div class="ui divided list">
 
-      <p>
+      <div class="item">
+        <img class="ui mini image" src="imgs/slidewiki.png">
+        <div class="content">
+          <a class="header" href="http://slidewiki.org">SlideWiki</a>
+          <div class="description">A platform for collaborative authoring of OpenCourseWare.</div>
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui mini image" src="imgs/context.png">
+        <div class="content">
+          <a class="header" href="http://context.aksw.org">conTEXT</a>
+          <div class="description">Lightweight Text Analytics using Linked Data.</div>
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui mini image" src="imgs/rdface.gif">
+        <div class="content">
+          <a class="header" href="http://rdface.aksw.org">RDFaCE</a>
+          <div class="description">A WYSIWYM interface for authoring of semantic content.</div>
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui mini image" src="imgs/pharmer.png">
+        <div class="content">
+          <a class="header" href="http://slidewiki.org">Pharmer</a>
+          <div class="description">A WYSIWYM interface for authoring of semantic medical prescriptions.</div>
+        </div>
+      </div>
+      <div class="item"><div class="content"><a class="fluid tiny ui button" href="http://github.com/ali1k">More projects...</a></div>
+    </div>
 
+  </div>
+  </div>
+
+
+  <div class="column" id="development">
+    <br/>
+    <div class="ui tall center aligned segment">
+
+      <p class="text center">
+        This website is powered by <a href="http://semantic-ui.com/">Semantic-UI</a> framework.
       </p>
     </div>
 
