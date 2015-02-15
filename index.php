@@ -20,7 +20,7 @@
     ...
   </div>
 
-  <div class="ui left vertical inverted labeled icon fixed menu">
+  <div class="ui top horizontal inverted sidebar menu" id="toc">
     <a class="item" href="#home">
       <i class="home icon"></i>
       Home
@@ -46,6 +46,9 @@
       Development
     </a>
   </div>
+  <div class="ui black launch right attached fixed button" onClick="toggleTOC();">
+    <i class="content icon"></i>
+  </div>
 
 
   <div class="ui vertically padded grid page pusher" id="home">
@@ -54,8 +57,8 @@
 
         <div class="ui card">
           <div class="ui slide masked reveal image">
-            <img src="imgs/ali_smile.jpg" class="visible content">
-            <img src="imgs/ali.jpg" class="hidden content">
+            <img src="imgs/ali.jpg" class="visible content" style="opacity: 0.5;">
+            <img src="imgs/ali_smile.jpg" class="hidden content" style="opacity: 0.9;">
           </div>
           <div class="content">
             <a class="header">Ali Khalili (Dr.-Ing.)</a>
@@ -149,7 +152,7 @@ type="text/javascript" charset="utf-8"></script>
             <br/>
             I am originally form Iran and have been abroad (Germany, Netherlands) since 2009 to continue my education.
             My wife (Bita) is a pharmacist and pharmaceutical technology researcher.
-            Besides my academic work, I enjoy reading novel and poetry books especially from Persian poets (e.g. <a href="http://en.wikipedia.org/wiki/Omar_Khayyam">Omar Khayyam</a>, <a href="http://en.wikipedia.org/wiki/Saadi_(poet)">Saadi</a>, <a href="http://en.wikipedia.org/wiki/Hafez_Shirazi">Hafez</a>, <a href="http://en.wikipedia.org/wiki/Rumi">Rumi</a>).
+            Besides my academic work, I enjoy reading novel and poetry books especially from Persian poets (e.g. <a href="http://en.wikipedia.org/wiki/Omar_Khayyam">Khayyam</a>, <a href="http://en.wikipedia.org/wiki/Saadi_(poet)">Saadi</a>, <a href="http://en.wikipedia.org/wiki/Hafez_Shirazi">Hafez</a>, <a href="http://en.wikipedia.org/wiki/Rumi">Rumi</a>).
             I also enjoy watching and playing soccer.
           </p>
         </div>
@@ -337,9 +340,11 @@ type="text/javascript" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/components/sidebar.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script type="text/javascript">
-    $('.sidebar')
-  .sidebar();
-
+    function toggleTOC(){
+      $('#toc')
+    .sidebar('toggle');
+    $('#home').css('padding-top','60px');
+    }
     </script>
 </body>
 
