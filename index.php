@@ -287,6 +287,13 @@ type="text/javascript" charset="utf-8"></script>
       <div class="ui divided list">
 
       <div class="item">
+        <img class="ui mini image" src="imgs/ldr.gif">
+        <div class="content">
+          <a class="header" href="http://ld-r.org">Linked Data Reactor</a>
+          <div class="description">A framework for building reactive and reusable Linked Data components.</div>
+        </div>
+      </div>
+      <div class="item">
         <img class="ui mini image" src="imgs/slidewiki.png">
         <div class="content">
           <a class="header" href="http://slidewiki.org">SlideWiki</a>
