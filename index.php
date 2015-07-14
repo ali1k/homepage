@@ -9,7 +9,7 @@
     <meta name="description" content="personal home page of Dr. Ali Khalili">
     <meta name="author" content="Ali Khalili">
 
-    <title>Ali Khalili -- home page</title>
+    <title>Dr.-Ing. Ali Khalili -- home page</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.8.1/semantic.min.css" rel="stylesheet">
 
 </head>
@@ -61,7 +61,7 @@
             <img src="imgs/ali_smile.jpg" class="hidden content" style="opacity: 0.9;">
           </div>
           <div class="content">
-            <a class="header">Ali Khalili (Dr.-Ing.)</a>
+            <a class="header">Dr.-Ing. Ali Khalili</a>
             <div class="meta">
               <span class="date">Postdoctoral Researcher</span>
             </div>
@@ -151,7 +151,7 @@ type="text/javascript" charset="utf-8"></script>
             I have worked as a Web designer and developer for several years and have expertise in different Web technologies like PHP, JavaScript, NodeJS, etc. Application such as <a href="http://rdface.aksw.org">RDFaCE</a>, <a href="http://slidewiki.org">SlideWiki</a> and <a href="http://context.aksw.org">conTEXT</a> are some examples of my development work.
             <br/>
             I am originally form Iran and have been abroad (Germany, Netherlands) since 2009 to continue my education.
-            My wife (Bita) is a pharmacist and pharmaceutical technology researcher.
+            I am married and my wife (<a href="http://www.uni-leipzig.de/~pharm/phatech/content/mitarbeiter/">Bita</a>) is a pharmacist and pharmaceutical technology researcher.
             Besides my academic work, I enjoy reading novel and poetry books especially from Persian poets (e.g. <a href="http://en.wikipedia.org/wiki/Omar_Khayyam">Khayyam</a>, <a href="http://en.wikipedia.org/wiki/Saadi_(poet)">Saadi</a>, <a href="http://en.wikipedia.org/wiki/Hafez_Shirazi">Hafez</a>, <a href="http://en.wikipedia.org/wiki/Rumi">Rumi</a>).
             I also enjoy watching and playing soccer.
           </p>
@@ -277,6 +277,7 @@ type="text/javascript" charset="utf-8"></script>
       <a href="https://scholar.google.com/citations?user=dSMSH2wAAAAJ&hl=en" class="ui circular blue button"><img class="ui avatar image" src="imgs/gscholar.png">Google Scholar</a>
       <a href="http://dblp1.uni-trier.de/pers/hd/k/Khalili:Ali" class="ui circular button"><img class="ui avatar image" src="imgs/dblp.jpeg"> DBLP</a>
       <a href="http://www.bibsonomy.org/user/alikhalili" class="ui circular green button"><img class="ui avatar image" src="imgs/bibsonomy.png"> Bibsonomy</a>
+      <a href="http://bibbase.org/show?bib=ali1k.com/mypubs.bib&simplegroups=1&group0=year" class="ui circular orange button"><img class="ui avatar image" src="imgs/bibbase.png"> BibBase</a>
     </div>
 
   </div>
