@@ -95,7 +95,7 @@
 
       <div class="wide column">
         <div class="ui secondary segment attached top">
-          My last blog posts <a href="https://ali1k.wordpress.com/feed/"><i class="feed icon"></i></a>
+          My latest blog posts <a href="https://ali1k.wordpress.com/feed/"><i class="feed icon"></i></a>
         </div>
         <div class="ui tall bottom vertical attached segment">
             <div class="ui divided list">
@@ -285,7 +285,7 @@ type="text/javascript" charset="utf-8"></script>
   <div class="column" id="development">
     <h3>Software projects developed by me</h3>
     <div class="ui tall bottom vertical attached segment">
-      <div class="ui divided list">
+      <div class="ui animated divided list">
 
       <div class="item">
         <img class="ui mini image" src="imgs/ldr.gif">
