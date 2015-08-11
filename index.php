@@ -144,7 +144,7 @@ type="text/javascript" charset="utf-8"></script>
         <div class="ui tall stacked bottom vertical attached segment">
 
           <p style="text-align: justify">
-            My name is Ali Khalili (علی خلیلی). I am a <a href="http://en.wikipedia.org/wiki/Semantic_Web"><i>Semantic Web</i></a> and <a href="http://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction"><i>HCI</i></a> researcher and enthusiast.
+            My name is Ali Khalili (in Persian 'علی خلیلی'). I am a <a href="http://en.wikipedia.org/wiki/Semantic_Web"><i>Semantic Web</i></a> and <a href="http://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction"><i>HCI</i></a> researcher and enthusiast.
             My main research interests lie in user interfaces and applications of the Semantic Web technologies.
             <a href="http://www.qucosa.de/recherche/frontdoor/?tx_slubopus4frontend%5bid%5d=urn:nbn:de:bsz:15-qucosa-159956">My PhD thesis</a> focused on <i>a semantics-based user interface model for content annotation, authoring and exploration</i>. I devised the <a href="http://www.semantic-web-journal.net/system/files/swj656.pdf">WYSIWYM</a> (What You See Is What You Mean) UI model to deal with semantically-enriched content.
             <br/>
