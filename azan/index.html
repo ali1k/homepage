@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="application/javascript" src="libs/prayTimes.js"></script>
+<script type="application/javascript" src="libs/latitude-longitude-picker/js/jquery-1.7.2.min.js"></script>
+<script type="application/javascript" src="libs/jquery.tmpl.min.js"></script>
+<script type="application/javascript" src="libs/jquery.cookie.js"></script>
+<script type="application/javascript" src="libs/jquery.MyDigitClock.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<link rel="stylesheet" type="text/css" href="libs/latitude-longitude-picker/css/jquery-gmaps-latlon-picker.css"/>
+<script type="application/javascript" src="libs/latitude-longitude-picker/js/jquery-gmaps-latlon-picker.js"></script>
+<link rel="stylesheet" type="text/css" href="libs/jquery.countdown/jquery.countdown.css"/>
+<script type="text/javascript" src="libs/jquery.countdown/jquery.countdown.js"></script>
+<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/sticky-footer-navbar.css"/>
+<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap-glyphicons.css"/>
+<script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="index.css"/>
+<script type="text/javascript" src="index.js"></script>
+<title>
+Calculating Islamic prayer times.
+</title>
+</head>
+<body>
+<script>
+// First check if browser supports the geolocation API
+if (navigator.geolocation)
+{
+	// Get the current position
+	var long,lat;
+	navigator.geolocation.getCurrentPosition(function(position){
+		lat = position.coords.latitude;
+		long = position.coords.longitude;
+		if(!$.cookie('calc_method')){
+			setCookie('calc_method','Tehran',30);
+		}
+		p=calculate(long,lat,$.cookie('calc_method'));
+		$( "#t_result" ).tmpl(p).appendTo( "#azan_times" );
+		enableTooltips();
+		start_countdown_all(p);
+		$('.trigger').mouseover(function(e) {
+			$(this).css('background-color','#dcfe89');
+		});			
+		$('.trigger').mouseout(function(e) {
+			$(this).css('background-color','');
+		});			
+		$('#m_lat').val(lat);
+		$('#m_long').val(long);
+		$('.gllpUpdateButton').click();
+	});
+} else {
+	alert("Sorry... your browser does not support the HTML5 GeoLocation API");
+}
+</script>
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-fixed-top">
+        <div class="container">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Prayer Times</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Services<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="tarikh/">Jalali-Gregorian</a></li>
+                  <li><a href="#">Service 2</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+
+      <!-- Begin page content -->
+      <div class="container">
+        <div class="page-header">
+			<div class="row">
+				<div class="col-lg-6"><h1 id="current_date"></h1></div>
+				<div class="col-lg-4 t-center"><span id="current_time"></span></div>
+			</div>
+        </div>
+		<div class="row">
+			<div class="col-lg-6">
+				<fieldset class="gllpLatlonPicker">
+					<div class="col-lg-5"><input class="form-control gllpSearchField" type="text" placeholder="Search for a place"></div>
+					<input type="button" value="Search" class="btn btn-default gllpSearchButton">
+					<input type="button" value="Calculate prayer times" class="btn btn-primary" onclick="recalculate();">
+					<br/><br/>
+					<div class="gllpMap">Google Maps</div>
+					<br/>
+					<div class="row">
+						<div class="col-lg-3">
+							<label class="control-label" for="m_lat">Latitude</label>
+							<input type="text" class="gllpLatitude form-control" value="20" id="m_lat"/>
+						</div>
+						<div class="col-lg-3">
+							<label class="control-label" for="m_long">Longitude</label>
+							<input type="text" class="gllpLongitude form-control" value="20" id="m_long"/>
+						</div>
+						<div class="col-lg-2">
+							<label class="control-label" for="zoom">Zoom</label>
+							<input type="text" class="gllpZoom form-control" value="8" id="zoom"/>
+						</div>	
+						<div class="col-lg-2">
+							<label class="control-label" for="update_map"> &nbsp;</label>
+							<input type="button" class="btn btn-info gllpUpdateButton" value="Update map" id="update_map">
+						</div>							
+					</div>
+					
+					<br/>
+				</fieldset>	
+			</div>
+			<div class="col-lg-4">
+				<div id="azan_times"></div>
+				<label class="control-label" for="calc_method">Calculation Method</label>
+				<select id="calc_method" class="form-control">
+					<option value="Tehran">Institute of Geophysics, University of Tehran</option>
+					<option value="Jafari">Shia Ithna Ashari (Ja`fari)</option>
+					<option value="MWL">Muslim World League</option>
+					<option value="ISNA">Islamic Society of North America </option>
+					<option value="Egypt">Egyptian General Authority of Survey </option>
+					<option value="Makkah">Umm al-Qura University, Makkah</option>
+					<option value="Karachi">University of Islamic Sciences, Karachi </option>
+				</select>		
+			</div>
+		</div>
+		<hr/>
+		<div class="row">
+			<div class="col-lg-10 alert alert-danger">
+				* Times are based on your local time. So if you select a region other than your local region, you still need to convert the time for the selected region.
+			</div>
+		</div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="text-muted credit">Powered by <a href="http://bitili.com">Bitili.com</a>.</p>
+      </div>
+    </div>
+
+<script id="t_result" type="text/x-jquery-tmpl">
+	<table class="table table-striped table-bordered table-hover table-condensed t-center">
+	<tr class="success"><td><strong>Event</strong></td><td><strong>Time</strong></td><td><strong>Remaining</strong></td><td><strong>Trigger</strong></td></tr>
+	<tr><td><span id="imsak">Imsak</span> <span id="imsak_inf" class="glyphicon glyphicon-info-sign"></span></td><td id="imsak_time" class="text-info">${imsak}</td><td id="imsak_time_r" class="remaining text-danger"></td><td class="trigger" onclick="setTriggModal('imsak');"><span class="glyphicon glyphicon-cog"></span></td></tr>
+	<tr><td><span id="fajr">Fajr</span> <span id="fajr_inf" class="glyphicon glyphicon-info-sign"></td><td id="sobh_time" class="text-info">${fajr}</td><td id="fajr_time_r" class="remaining text-danger"></td><td class="trigger" onclick="setTriggModal('fajr');"><span class="glyphicon glyphicon-cog"></span></td></tr>
+	<tr><td><span id="sunrise">Sunrise</span></td><td id="sunrise_time" class="text-info">${sunrise}</td><td id="sunrise_time_r" class="remaining text-danger"></td><td class="trigger" onclick="setTriggModal('sunrise');"><span class="glyphicon glyphicon-cog"></span></td></tr>
+	<tr><td><span id="dhuhr">Dhuhr</span> <span id="dhuhr_inf" class="glyphicon glyphicon-info-sign"></td><td id="zohr_time" class="text-info">${dhuhr}</td><td id="dhuhr_time_r" class="remaining text-danger"></td><td class="trigger" onclick="setTriggModal('dhuhr');"><span class="glyphicon glyphicon-cog"></span></td></tr>
+	<tr><td><span id="asr">Asr</span> <span id="asr_inf" class="glyphicon glyphicon-info-sign"></td><td id="asr_time" class="text-info">${asr}</td><td id="asr_time_r" class="remaining text-danger"></td><td class="trigger" onclick="setTriggModal('asr');"><span class="glyphicon glyphicon-cog"></span></td></tr>
+	<tr><td><span id="sunset">Sunset</span></td><td id="sunset_time" class="text-info">${sunset}</td><td id="sunset_time_r" class="text-danger"></td><td class="trigger" onclick="setTriggModal('sunset');"><span class="glyphicon glyphicon-cog"></span></td></tr>
+	<tr><td><span id="maghrib">Maghrib</span> <span id="maghrib_inf" class="glyphicon glyphicon-info-sign"></td><td id="maghreb_time" class="text-info">${maghrib}</td><td id="maghrib_time_r" class="remaining text-danger"></td><td class="trigger" onclick="setTriggModal('maghrib');"><span class="glyphicon glyphicon-cog"></span></td></tr>
+	<tr><td><span id="isha">Isha'</span> <span id="isha_inf" class="glyphicon glyphicon-info-sign"></td><td id="isha_time" class="text-info">${isha}</td><td id="isha_time_r" class="remaining text-danger"></td><td class="trigger" onclick="setTriggModal('isha');"><span class="glyphicon glyphicon-cog"></span></td></tr>
+	<tr><td><span id="midnight">Midnight</span></td><td id="midnight_time" class="text-info">${midnight}</td><td id="midnight_time_r" class="remaining text-danger"></td><td class="trigger" onclick="setTriggModal('midnight');"><span class="glyphicon glyphicon-cog"></span></td></tr>
+	<tr><td>Tomorrow's Fajr</td><td id="sobhFarda_time" class="text-info">${sobhFarda}</td><td id="sobhFarda_time_r" class="remaining text-danger" colspan="2"></td></tr>
+	</table>				
+</script>
+
+<div class="modal fade" id="triggerModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Assign a video</h4>
+      </div>
+      <div class="modal-body">
+        <p>You can assign a video to the event. When the event is triggerred, the video will automatically start to play.</p>
+		<label class="control-label" for="video_url">Video URL for '<span class="text-success" id="video_url_caption"></span>'</label>
+		<input type="text" class="form-control" placeholder="URL of the Video. Example: http://www.youtube.com/embed/XqLYiiQ_uzw" id="video_url">	
+		<input type="hidden" id="trigger_name">			
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="saveTrigger();">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="triggerPlay">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">'<span class="text-success" id="video_play_caption"></span>' Time</h4>
+      </div>
+      <div class="modal-body">	
+		<iframe id="video_frame" width="100%" height="390" frameborder="0" allowfullscreen></iframe>	  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42950351-1', 'bitili.com');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
