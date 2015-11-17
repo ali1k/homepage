@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Edit Person</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="../../utils/mctabs.js"></script>
+	<script type="text/javascript" src="../../utils/form_utils.js"></script>
+	<script type="text/javascript" src="../../utils/validate.js"></script>	
+	<script type="text/javascript" src="js/editEntities.js"></script>
+	<link rel="stylesheet" href="css/rdface.css" type="text/css"/>
+</head>
+<body id="person" style="display: none" role="application" onload="javascript:mcTabs.displayTab('general_tab','general_panel', true);"	aria-labelledby="app_label">
+<div class="tabs" role="presentation">
+<ul>
+	<li id="general_tab" class="current" aria-controls="general_panel"><span><a
+		href="javascript:mcTabs.displayTab('general_tab','general_panel');"
+		onmousedown="return false;">General</a></span></li>
+	<li id="address_tab" aria-controls="address_panel"><span><a
+		href="javascript:mcTabs.displayTab('address_tab','address_panel');"
+		onmousedown="return false;">Address</a></span></li>
+</ul>
+</div>
+<div class="panel_wrapper entity_form person_form" role="presentation" style="height:215px;">
+	<div id="general_panel" class="panel current" style="height:215px;">
+<form id="person_form" action="#">
+	<p id="entity_title" align="center"></p>
+	<table>
+		<tr>
+	<td></td>
+	<td> <b>Person</b> |
+<button class="textandimage" onclick="EditEntities.changeType('Place');"><img src="img/location.png">Place</button> |
+<button class="textandimage" onclick="EditEntities.changeType('Organization');"><img src="img/organization.png">Org.</button>
+	</td>
+	</tr>
+<tr>
+<td></td>
+<td>
+<table>
+	<tr>
+	<td>Entity URI</td><td><input id="uri" name="uri" type="text" class="text" /><a href="#" id="uri_open" target="_blank" title="Open URI"><img border="0" src="img/link.gif"/></a></td>
+	</tr>
+	<tr>
+	<td>Honorific Prefix</td>
+	<td><input id="honorificPrefix" name="honorificPrefix" type="text" class="text" /></td>
+	</tr>
+		<tr>
+	<td>Given Name</td>
+	<td><input id="givenName" name="givenName" type="text" class="text" /></td>
+	</tr>
+		<tr>
+	<td>Middle Name</td>
+	<td><input id="additionalName" name="additionalName" type="text" class="text" /></td>
+	</tr>
+		<tr>
+	<td>Family Name</td>
+	<td><input id="lastName" name="lastName" type="text" class="text" /></td>
+	</tr>
+		<tr>
+	<td>Honorific Suffix</td>
+	<td><input id="honorificSuffix" name="honorificSuffix" type="text" class="text" /></td>
+	</tr>
+</table>	
+</table>	
+</form>
+	</div>	
+	<div id="address_panel" class="panel" style="height:215px;">
+		<form id="address_form">
+		<table>
+			<tr>
+			<td>Country</td>
+			<td><input id="countryName" name="countryName" type="text" class="text" /></td>
+			</tr>
+			<tr>
+			<td>Locality</td>
+			<td><input id="locality" name="locality" type="text" class="text" /></td>
+			</tr>
+				<tr>
+			<td>Region</td>
+			<td><input id="region" name="region" type="text" class="text" /></td>
+			</tr>
+					<tr>
+			<td>Street Address</td>
+			<td><input id="streetAddress" name="streetAddress" type="text" class="text" /></td>
+			</tr>
+				<tr>
+			<td>Postal Code</td>
+			<td><input id="postalCode" name="postalCode" type="text" class="text" /></td>
+			</tr>	
+						<tr>
+			<td>Post Office Box No.</td>
+			<td><input id="postalBox" name="postalBox" type="text" class="text" /></td>
+			</tr>	
+					<tr>
+			<td>Tel</td>
+			<td><input id="tel" name="tel" type="text" class="text" /></td>
+			</tr>
+				<tr>
+			<td>Fax</td>
+			<td><input id="fax" name="fax" type="text" class="text" /></td>
+			</tr>
+				<tr>
+			<td>Email</td>
+			<td><input id="email" name="email" type="text" class="text" /></td>
+			</tr>		
+			<tr>
+			<td>URL</td>
+			<td><input id="url" name="url" type="text" class="text" /></td>
+			</tr>	
+		</table>		
+		</form>
+	</div>	
+</div>	
+		<div class="mceActionPanel" align="center">
+		<div style="float: center">
+			<input type="button" class="btn small primary" id="update" name="update" value="Save" onclick="EditEntities.update();" />
+			<input type="button" class="btn small danger" id="delete" name="delete" value="Delete" onclick="EditEntities.delete();" />
+			<input type="button" class="btn small" id="cancle" name="cancle" value="Cancel" onclick="tinyMCEPopup.close();" />		
+		</div>
+		</div>
+</body>
+</html>
