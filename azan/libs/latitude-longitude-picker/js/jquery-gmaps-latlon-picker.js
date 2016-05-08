@@ -1,16 +1,16 @@
 /**
- * 	
+ *
  * A JQUERY GOOGLE MAPS LATITUDE AND LONGITUDE LOCATION PICKER
  * version 1.2
- * 
+ *
  * Supports multiple maps. Works on touchscreen. Easy to customize markup and CSS.
- * 
+ *
  * To see a live demo, go to:
  * http://www.wimagguc.com/projects/jquery-latitude-longitude-picker-gmaps/
- * 
+ *
  * by Richard Dancsi
  * http://www.wimagguc.com/
- * 
+ *
  */
 
 (function($) {
@@ -20,7 +20,7 @@ if (!window.console) window.console = {};
 if (!window.console.log) window.console.log = function () { };
 // ^^^
 
-var GMapsLatLonPicker = (function() {
+$.fn.gMapsLatLonPicker = (function() {
 
 	var _self = this;
 
@@ -40,9 +40,12 @@ var GMapsLatLonPicker = (function() {
 			streetViewControl: false
 		},
 		strings : {
-			markerText : "Drag this Marker", 
+			markerText : "Drag this Marker",
 			error_empty_field : "Couldn't find coordinates for this place",
 			error_no_results : "Couldn't find coordinates for this place"
+		},
+		displayError : function(message) {
+			alert(message);
 		}
 	};
 
@@ -66,9 +69,9 @@ var GMapsLatLonPicker = (function() {
 		$(_self.vars.cssID + ".gllpZoom").val( _self.vars.map.getZoom() );
 		$(_self.vars.cssID + ".gllpLongitude").val( position.lng() );
 		$(_self.vars.cssID + ".gllpLatitude").val( position.lat() );
-		
+
 		$(_self.vars.cssID).trigger("location_changed", $(_self.vars.cssID));
-		
+
 		if (_self.params.queryLocationNameWhenLatLngChanges) {
 			getLocationName(position);
 		}
@@ -76,7 +79,7 @@ var GMapsLatLonPicker = (function() {
 			getElevation(position);
 		}
 	};
-	
+
 	// for reverse geocoding
 	var getLocationName = function(position) {
 		var latlng = new google.maps.LatLng(position.lat(), position.lng());
@@ -111,12 +114,12 @@ var GMapsLatLonPicker = (function() {
 			$(_self.vars.cssID).trigger("elevation_changed", $(_self.vars.cssID));
 		});
 	};
-	
+
 	// search function
 	var performSearch = function(string, silent) {
 		if (string == "") {
 			if (!silent) {
-				displayError( _self.params.strings.error_empty_field );
+				_self.params.displayError( _self.params.strings.error_empty_field );
 			}
 			return;
 		}
@@ -129,16 +132,11 @@ var GMapsLatLonPicker = (function() {
 					setPosition( results[0].geometry.location );
 				} else {
 					if (!silent) {
-						displayError( _self.params.strings.error_no_results );
+						_self.params.displayError( _self.params.strings.error_no_results );
 					}
 				}
 			}
 		);
-	};
-	
-	// error function
-	var displayError = function(message) {
-		alert(message);
 	};
 
 	///////////////////////////////////////////////////////////////////////////////////////////////
@@ -162,12 +160,12 @@ var GMapsLatLonPicker = (function() {
 			_self.params.defLat  = $(_self.vars.cssID + ".gllpLatitude").val()  ? $(_self.vars.cssID + ".gllpLatitude").val()		: _self.params.defLat;
 			_self.params.defLng  = $(_self.vars.cssID + ".gllpLongitude").val() ? $(_self.vars.cssID + ".gllpLongitude").val()	    : _self.params.defLng;
 			_self.params.defZoom = $(_self.vars.cssID + ".gllpZoom").val()      ? parseInt($(_self.vars.cssID + ".gllpZoom").val()) : _self.params.defZoom;
-			
+
 			_self.vars.LATLNG = new google.maps.LatLng(_self.params.defLat, _self.params.defLng);
 
 			_self.vars.MAPOPTIONS		 = _self.params.mapOptions;
 			_self.vars.MAPOPTIONS.zoom   = _self.params.defZoom;
-			_self.vars.MAPOPTIONS.center = _self.vars.LATLNG; 
+			_self.vars.MAPOPTIONS.center = _self.vars.LATLNG;
 
 			_self.vars.map = new google.maps.Map($(_self.vars.cssID + ".gllpMap").get(0), _self.vars.MAPOPTIONS);
 			_self.vars.geocoder = new google.maps.Geocoder();
@@ -184,19 +182,19 @@ var GMapsLatLonPicker = (function() {
 			google.maps.event.addListener(_self.vars.map, 'dblclick', function(event) {
 				setPosition(event.latLng);
 			});
-		
+
 			// Set position on marker move
 			google.maps.event.addListener(_self.vars.marker, 'dragend', function(event) {
 				setPosition(_self.vars.marker.position);
 			});
-	
+
 			// Set zoom feld's value when user changes zoom on the map
 			google.maps.event.addListener(_self.vars.map, 'zoom_changed', function(event) {
 				$(_self.vars.cssID + ".gllpZoom").val( _self.vars.map.getZoom() );
 				$(_self.vars.cssID).trigger("location_changed", $(_self.vars.cssID));
 			});
 
-			// Update location and zoom values based on input field's value 
+			// Update location and zoom values based on input field's value
 			$(_self.vars.cssID + ".gllpUpdateButton").bind("click", function() {
 				var lat = $(_self.vars.cssID + ".gllpLatitude").val();
 				var lng = $(_self.vars.cssID + ".gllpLongitude").val();
@@ -223,21 +221,27 @@ var GMapsLatLonPicker = (function() {
 				_self.vars.map.setZoom( parseInt( $(_self.vars.cssID + ".gllpZoom").val() ) );
 				setPosition(latlng);
 			});
-		}
+		},
 
-	}
-	
+		// EXPORT PARAMS TO EASILY MODIFY THEM ////////////////////////////////////////////////////
+		params : _self.params
+
+	};
+
 	return publicfunc;
 });
 
+}(jQuery));
+
 $(document).ready( function() {
-	$(".gllpLatlonPicker").each(function() {
-		(new GMapsLatLonPicker()).init( $(this) );
-	});
+	if (!$.gMapsLatLonPickerNoAutoInit) {
+		$(".gllpLatlonPicker").each(function () {
+			$obj = $(document).gMapsLatLonPicker();
+			$obj.init( $(this) );
+		});
+	}
 });
 
 $(document).bind("location_changed", function(event, object) {
 	console.log("changed: " + $(object).attr('id') );
 });
-
-}(jQuery));

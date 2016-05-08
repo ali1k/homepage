@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="application/javascript" src="libs/prayTimes.js"></script>
-<script type="application/javascript" src="libs/latitude-longitude-picker/js/jquery-1.7.2.min.js"></script>
+<script type="application/javascript" src="libs/latitude-longitude-picker/js/jquery-2.1.1.min.js"></script>
 <script type="application/javascript" src="libs/jquery.tmpl.min.js"></script>
 <script type="application/javascript" src="libs/jquery.cookie.js"></script>
 <script type="application/javascript" src="libs/jquery.MyDigitClock.js"></script>
@@ -42,10 +42,10 @@ if (navigator.geolocation)
 		start_countdown_all(p);
 		$('.trigger').mouseover(function(e) {
 			$(this).css('background-color','#dcfe89');
-		});			
+		});
 		$('.trigger').mouseout(function(e) {
 			$(this).css('background-color','');
-		});			
+		});
 		$('#m_lat').val(lat);
 		$('#m_long').val(long);
 		$('.gllpUpdateButton').click();
@@ -112,15 +112,15 @@ if (navigator.geolocation)
 						<div class="col-lg-2">
 							<label class="control-label" for="zoom">Zoom</label>
 							<input type="text" class="gllpZoom form-control" value="8" id="zoom"/>
-						</div>	
+						</div>
 						<div class="col-lg-2">
 							<label class="control-label" for="update_map"> &nbsp;</label>
 							<input type="button" class="btn btn-info gllpUpdateButton" value="Update map" id="update_map">
-						</div>							
+						</div>
 					</div>
-					
+
 					<br/>
-				</fieldset>	
+				</fieldset>
 			</div>
 			<div class="col-lg-4">
 				<div id="azan_times"></div>
@@ -133,7 +133,7 @@ if (navigator.geolocation)
 					<option value="Egypt">Egyptian General Authority of Survey </option>
 					<option value="Makkah">Umm al-Qura University, Makkah</option>
 					<option value="Karachi">University of Islamic Sciences, Karachi </option>
-				</select>		
+				</select>
 			</div>
 		</div>
 		<hr/>
@@ -147,7 +147,7 @@ if (navigator.geolocation)
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted credit">Powered by <a href="http://bitili.com">Bitili.com</a>.</p>
+        <p class="text-muted credit">Powered by <a href="http://ali1k.com">ali1k.com</a>.</p>
       </div>
     </div>
 
@@ -164,7 +164,7 @@ if (navigator.geolocation)
 	<tr><td><span id="isha">Isha'</span> <span id="isha_inf" class="glyphicon glyphicon-info-sign"></td><td id="isha_time" class="text-info">${isha}</td><td id="isha_time_r" class="remaining text-danger"></td><td class="trigger" onclick="setTriggModal('isha');"><span class="glyphicon glyphicon-cog"></span></td></tr>
 	<tr><td><span id="midnight">Midnight</span></td><td id="midnight_time" class="text-info">${midnight}</td><td id="midnight_time_r" class="remaining text-danger"></td><td class="trigger" onclick="setTriggModal('midnight');"><span class="glyphicon glyphicon-cog"></span></td></tr>
 	<tr><td>Tomorrow's Fajr</td><td id="sobhFarda_time" class="text-info">${sobhFarda}</td><td id="sobhFarda_time_r" class="remaining text-danger" colspan="2"></td></tr>
-	</table>				
+	</table>
 </script>
 
 <div class="modal fade" id="triggerModal">
@@ -177,8 +177,8 @@ if (navigator.geolocation)
       <div class="modal-body">
         <p>You can assign a video to the event. When the event is triggerred, the video will automatically start to play.</p>
 		<label class="control-label" for="video_url">Video URL for '<span class="text-success" id="video_url_caption"></span>'</label>
-		<input type="text" class="form-control" placeholder="URL of the Video. Example: http://www.youtube.com/embed/XqLYiiQ_uzw" id="video_url">	
-		<input type="hidden" id="trigger_name">			
+		<input type="text" class="form-control" placeholder="URL of the Video. Example: http://www.youtube.com/embed/XqLYiiQ_uzw" id="video_url">
+		<input type="hidden" id="trigger_name">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -194,8 +194,8 @@ if (navigator.geolocation)
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title">'<span class="text-success" id="video_play_caption"></span>' Time</h4>
       </div>
-      <div class="modal-body">	
-		<iframe id="video_frame" width="100%" height="390" frameborder="0" allowfullscreen></iframe>	  
+      <div class="modal-body">
+		<iframe id="video_frame" width="100%" height="390" frameborder="0" allowfullscreen></iframe>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -203,15 +203,5 @@ if (navigator.geolocation)
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-42950351-1', 'bitili.com');
-  ga('send', 'pageview');
-
-</script>
 </body>
 </html>
