@@ -1,6 +1,6 @@
 # Run, run, feel the flow  
   
-(Motivational running anthem — inspired by Mulla Sadra themes of motion & becoming)    
+(inspired by Mulla Sadra themes of motion & becoming)    
   
 Run, run, feel the flow,    
 Energy you always know,    
