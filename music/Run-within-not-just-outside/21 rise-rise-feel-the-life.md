@@ -1,5 +1,5 @@
 # Rise, rise — feel the life  
-#   
+
 Light in my heart  
 Ready to start  
 Step by step  
